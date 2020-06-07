@@ -32,7 +32,7 @@ pipeline {
         
         stage('Deploy to GKE') {
             steps{
-                git url: 'https://github.com/gauthamdharsan/jenkins-GKE.git'
+                git url: 'https://github.com/gauthamdharsan/jenkins-GKE'
                 sh "sed -i 's/hello:latest/hello:${env.BUILD_ID}/g' deployment.yaml"
                 step([$class: 'KubernetesEngineBuilder',
                         projectId: env.PROJECT_ID,
